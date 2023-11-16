@@ -1,11 +1,7 @@
 import { useAppContext } from "../../useAppContext";
 import type { Item } from "../../types";
 
-type ListItemProps = {
-  item: Item;
-};
-
-export function ListItem({ item }: ListItemProps) {
+export function ListItem({ item }: { item: Item }) {
   const { markAsDone, removeItem } = useAppContext();
 
   return (
@@ -38,7 +34,11 @@ export function ListItem({ item }: ListItemProps) {
             className="btn btn-neutral btn-sm"
             onClick={() => markAsDone(item)}
           >
-            {item.isDone ? "Terminado" : "Marcar como terminado"}
+            {item.isDone ? (
+              <span>&#x2611; Terminado</span>
+            ) : (
+              <span>Marcar como terminado</span>
+            )}
           </button>
         </div>
       </div>
