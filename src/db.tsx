@@ -6,7 +6,7 @@ export async function createDB() {
   // Using https://github.com/jakearchibald/idb
   try {
     db = await openDB("cookbook", 1, {
-      upgrade(db, oldVersion, newVersion, transaction) {
+      upgrade(db, oldVersion, _newVersion, _transaction) {
         // Switch over the oldVersion, without `break`s, to allow the database to be incrementally upgraded. No `break` so all of the updates get run!
         switch (oldVersion) {
           case 0:
