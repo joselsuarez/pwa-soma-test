@@ -3,6 +3,7 @@ import { List } from "./components/List/List";
 
 import { AppProvider } from "./AppProvider";
 import { useEffect } from "react";
+import { createDB, addData } from "./db";
 
 function App() {
 
@@ -37,8 +38,8 @@ function App() {
   }, [])
 
   async function initDB() {
-    // await createDB();
-    // addData()
+    await createDB();
+    addData()
   }
 
   async function installApp() {
