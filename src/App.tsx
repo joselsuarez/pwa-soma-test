@@ -22,14 +22,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/service-worker.js', { scope: '/docs' })
-        .then((registration) => console.log('scope is: ', registration.scope));
-    }
-  }, []);
-
-  useEffect(() => {
 
 
     window.addEventListener("beforeinstallprompt", (event) => {

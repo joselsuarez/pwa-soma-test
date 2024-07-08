@@ -97,5 +97,5 @@ export function apiPostSupa(texto: string = 'texto default', e: any) {
 function backgroundSync() {
     navigator.serviceWorker.ready
     .then((swRegistation: any) => swRegistation.sync.register('post-data'))
-    .catch(console.log);
+    .catch((e) => console.log(e));
   }

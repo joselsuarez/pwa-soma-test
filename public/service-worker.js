@@ -39,7 +39,9 @@ const installEvent = () => {
   
 
   self.addEventListener("sync", (event) => {
+    console.log('antes del tag');
     if (event.tag === "post-data") {
+      console.log('dentro del tag');
       event.waitUntil(sendOutboxMessages());
     }
   });
@@ -51,6 +53,7 @@ const installEvent = () => {
 
   function apiPostSupa() {
 
+    
     const requestOptions = {
         method: 'POST',
         headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmY3F5ZmlwbmhsYnJmYmVwdHF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5NDY5MzIsImV4cCI6MjAzNTUyMjkzMn0.ulqAGI6irj8n9ONM28BbNpvVlic0iPSt5m3rcbyogO0',
@@ -64,5 +67,6 @@ const installEvent = () => {
     .then(response => response.status)
         .then(data => console.log('apiPostSupa', data))
         .catch( error => console.error ); 
+        alert('informacion enviada')
  
 }
