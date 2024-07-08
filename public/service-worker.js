@@ -12,8 +12,6 @@ const installEvent = () => {
   };
   activateEvent();
 
- 
-
 
   const installPromp = () => {
     console.log('antes beforeinstallprompt');
@@ -21,7 +19,7 @@ const installEvent = () => {
       e.prompt();
       console.log('beforeinstallprompt');
     });
-  };
+  }; 
   installPromp();
   
   
@@ -39,3 +37,32 @@ const installEvent = () => {
     return res;
   };
   
+
+  self.addEventListener("sync", (event) => {
+    if (event.tag === "post-data") {
+      event.waitUntil(sendOutboxMessages());
+    }
+  });
+ 
+  const sendOutboxMessages = () => {
+    console.log("sendOutboxMessages");
+    apiPostSupa();
+  }
+
+  function apiPostSupa() {
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmY3F5ZmlwbmhsYnJmYmVwdHF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5NDY5MzIsImV4cCI6MjAzNTUyMjkzMn0.ulqAGI6irj8n9ONM28BbNpvVlic0iPSt5m3rcbyogO0',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmY3F5ZmlwbmhsYnJmYmVwdHF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk5NDY5MzIsImV4cCI6MjAzNTUyMjkzMn0.ulqAGI6irj8n9ONM28BbNpvVlic0iPSt5m3rcbyogO0',
+            'Content-Type':'application/json',
+            'Prefer':'return=minimal'
+         },
+         body: JSON.stringify({ name: 'registro apenas se tiene internet' })
+    };
+    fetch('https://cfcqyfipnhlbrfbeptqx.supabase.co/rest/v1/products',requestOptions)
+    .then(response => response.status)
+        .then(data => console.log('apiPostSupa', data))
+        .catch( error => console.error ); 
+ 
+}
