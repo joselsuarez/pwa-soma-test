@@ -13,13 +13,23 @@ function App() {
   let installPrompt: any;
   const [texto, setTexto] = useState('');
 
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => console.log('scope is: ', registration.scope));
+  }
+
   useEffect(() => {
+
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('/sw.js')
+        .register('/service-worker.js')
         .then((registration) => console.log('scope is: ', registration.scope));
-    }
-  }, []);
+    } 
+     
+  }, [])
+
+  
 
   useEffect(() => {
 
