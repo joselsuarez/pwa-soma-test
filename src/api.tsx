@@ -89,7 +89,6 @@ export function apiPostSupa(texto: string = 'texto default', e: any) {
             .catch( error => {
                 alert(`No se pudo enviar los datos, se guardaron en memoria de ${texto}`);
                 backgroundSync();
-                localStorage.setItem("nombre", texto);
                 console.log(error);                
             }); 
      
