@@ -67,6 +67,6 @@ const installEvent = () => {
     .then(response => response.status)
         .then(data => console.log('apiPostSupa', data))
         .catch( error => console.error ); 
-        alert('informacion enviada')
+        console.log('informacion enviada')
  
 }
