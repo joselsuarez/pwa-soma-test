@@ -3,8 +3,10 @@ import { List } from "./components/List/List";
 
 import { AppProvider } from "./AppProvider";
 import { useEffect, useState } from "react";
-import { createDB, addData, getData, addDataSingle, getDataDBIndex } from "./db";
-import { apiGet, apiGetSupa, apiPost, apiPostSupa } from "./api";
+// import { addData, getData, addDataSingle} from "./db";
+import { createDB, getDataDBIndex } from "./db";
+// import { apiGet, apiPost } from "./api";
+import { apiGetSupa, apiPostSupa } from "./api";
 
 function App() {
 
@@ -92,11 +94,11 @@ function App() {
         {/* <button className="p-4" id="getData" onClick={getData}>getData</button> */}
         {/* <button className="p-4" id="persistData" onClick={persistData}>persistData</button> */}
         <button className="p-4" id="apiGetSupa" onClick={apiGetSupa}>apiGetSupa</button>
-        <button className="p-4" id="apiPostSupa" onClick={(e) => apiPostSupa(texto)}>apiPostSupa</button>
-        <button className="p-4" id="addDataSingle" onClick={(e) => addDataSingle(texto)}>addDataSingle</button>
+        <button className="p-4" id="apiPostSupa" onClick={(e) => apiPostSupa(texto, e)}>apiPostSupa</button>
+        {/* <button className="p-4" id="addDataSingle" onClick={(e) => addDataSingle(texto)}>addDataSingle</button> */}
         <button className="p-4" id="getDataDBIndex" onClick={getDataDBIndex}>getDataDBIndex</button>        
-        {/* <button className="p-4" id="postDataSupa" onClick={postDataSupa}>postDataSupa</button>
-        <button className="p-4" id="apiGet" onClick={apiGet}>apiGet</button>
+        <button hidden className="p-4" id="postDataSupa" onClick={postDataSupa}>postDataSupa</button>
+        {/*  <button className="p-4" id="apiGet" onClick={apiGet}>apiGet</button>
         <button className="p-4" id="apiPost" onClick={apiPost}>apiPost</button> */}
 
         </div>

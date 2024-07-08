@@ -95,14 +95,15 @@ export async function addDataSingle(texto: string) {
   };
   request.onsuccess = function (event: any) {
     // Do something with the request.result!
+    console.log(event);   
     alert("Name for SSN 444-44-4444 is " + request.result.name);
   };
 
-    // const tx = await db.transaction("recipes", "readwrite");
-    // const store = tx.objectStore("recipes");
-    // store.add(cookies);
-    // await tx.done;
-    // showResult("Cookies added to the database");
+    const tx = await db.transaction("recipes", "readwrite");
+    const store = tx.objectStore("recipes");
+    store.add(cookies);
+    await tx.done;
+    showResult("Cookies added to the database");
   } catch (e: any) {
     showResult("Error while saving data to DB: " + e.message);
   }

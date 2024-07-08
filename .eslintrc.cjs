@@ -5,6 +5,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    "next/core-web-vitals",
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -14,5 +15,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "@next/next/no-img-element": "off",
+        "react/no-unescaped-entities": "off",
+        "@next/next/no-page-custom-font": "off",
+         "no-alert": "off"
   },
 }

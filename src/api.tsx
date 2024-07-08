@@ -68,7 +68,8 @@ export function apiGetSupa() {
 
 }
 
-export function apiPostSupa(texto: string = 'texto default') {
+export function apiPostSupa(texto: string = 'texto default', e: any) {
+    console.log(e);    
 
         const requestOptions = {
             method: 'POST',
@@ -89,6 +90,7 @@ export function apiPostSupa(texto: string = 'texto default') {
                 alert(`No se pudo enviar los datos, se guardaron en memoria de ${texto}`);
                 backgroundSync();
                 localStorage.setItem("nombre", texto);
+                console.log(error);                
             }); 
      
 }
