@@ -15,20 +15,10 @@ function App() {
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-      .register('/sw.js')
+      .register('/service-worker.js')
       .then((registration) => console.log('scope is: ', registration.scope));
-  }
-
-  useEffect(() => {
-
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then((registration) => console.log('scope is: ', registration.scope));
-    } 
-     
-  }, [])
-
+  } 
+  
   
 
   useEffect(() => {
@@ -40,6 +30,7 @@ function App() {
     });
 
     initDB();  
+    apiPostSupa("apenas abre", null);
      
   }, [])
 
